@@ -8,6 +8,12 @@
 
 #import "NSAttributedRange.h"
 
+@interface NSAttributedRange ()
+
+@property (strong) NSMutableDictionary *attributes;
+
+@end
+
 @implementation NSAttributedRange
 
 - (id)init
@@ -24,16 +30,16 @@
 	return NSMakeRange(self.location, self.length);
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-	[aCoder encodeObject:@{ @"location": @(self.location),
-							@"length": @(self.length),
-							@"attributes": self.attributes }];
-}
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-	NSDictionary *data = (NSDictionary *)[aDecoder decodeObject];
-}
+//- (void)encodeWithCoder:(NSCoder *)aCoder
+//{
+//	[aCoder encodeObject:@{ @"location": @(self.location),
+//							@"length": @(self.length),
+//							@"attributes": self.attributes }];
+//}
+//
+//- (id)initWithCoder:(NSCoder *)aDecoder
+//{
+//	NSDictionary *data = (NSDictionary *)[aDecoder decodeObject];
+//}
 
 @end

@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSAttributedRange : NSObject <NSCoding>
+@interface NSAttributedRange : NSObject
 
 @property NSUInteger location;
 @property NSUInteger length;
-@property (strong) NSMutableDictionary *attributes;
+@property (strong,readonly) NSMutableDictionary *attributes;
 
 - (NSRange)range;
 
