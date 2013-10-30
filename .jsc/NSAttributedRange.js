@@ -8,9 +8,13 @@
 
   NSRange = (function() {
     function NSRange(location, length) {
-      this.location = location;
-      this.length = length;
+      this.location = location != null ? location : 0;
+      this.length = length != null ? length : 0;
     }
+
+    NSRange.prototype.maxEdge = function() {
+      return this.location + this.length;
+    };
 
     return NSRange;
 
@@ -20,13 +24,17 @@
     __extends(NSAttributedRange, _super);
 
     function NSAttributedRange(location, length, attributes) {
-      this.location = location;
-      this.length = length;
+      this.location = location != null ? location : 0;
+      this.length = length != null ? length : 0;
       this.attributes = attributes != null ? attributes : {};
     }
 
     return NSAttributedRange;
 
   })(NSRange);
+
+  root.NSRange = NSRange;
+
+  root.NSAttributedRange = NSAttributedRange;
 
 }).call(this);
