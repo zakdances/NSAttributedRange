@@ -1,6 +1,6 @@
 root = exports ? this
 
-class NSRange
+class CSRange
 	constructor: (@location=0, @length=0) ->
 
 	maxEdge: () ->
@@ -8,11 +8,22 @@ class NSRange
 	# intersectsWith: () ->
 	# 	return
 
-class NSAttributedRange extends NSRange
-	constructor: (@location=0, @length=0, @attributes={}) ->
+class CSTextRange extends CSRange
+	constructor: (@location=0, @length=0, @lines=[]) ->
+		# for line in @lines when !line.line
+		# 	asd = 'as'
+		
+		# for k, v of ( line for line in @lines where ) 
+	
 
+		
+		
 	# maxEdge: () ->
 	# 	@location + @length
 
-root.NSRange 			= NSRange
-root.NSAttributedRange 	= NSAttributedRange
+class CSSingleTextLineRange extends CSRange
+	constructor: (@location=0, @length=0, @lineNumber=0) ->
+
+root.CSRange 			= CSRange
+root.CSTextRange 		= CSTextRange
+root.CSSingleTextLineRange 	= CSSingleTextLineRange
